@@ -3,7 +3,10 @@ const pino = require('pino');
 
 const app = express();
 
-const logger = pino({ level: 'info' });
+const logger = pino({
+    level: 'info',
+    timestamp: () => `,"time":"${new Date().toISOString()}"`
+});
 
 logger.info('hello elastic world');
 logger.info('This is some great stuff');
